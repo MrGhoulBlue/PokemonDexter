@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Pokedex.Views.PokemonList">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="pokemonList!"                
+                HorizontalOptions="CenterAndExpand" />
+
+            <ListView x:Name="ListPoke"   
+                SelectionMode="None" 
+                VerticalOptions="FillAndExpand"                     
+                RowHeight="100"
+                 >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Frame x:Name="frame" CornerRadius="10" OutlineColor="Black"
+                                    BackgroundColor="white" Padding="0"  Margin="5,5,5,5"  >
+
+                                <StackLayout
+                                       Orientation="Vertical"
+                                       Margin="10,10,10,10">
+
+
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+
+                                                <RowDefinition Height="*"  />
+                                                <RowDefinition Height="*"  />
+                                            </Grid.RowDefinitions>
+                                            
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" /> 
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Name}   "  
+                                                  FontSize="Small"
+                                                 Grid.Row="0" Grid.Column="0" />
+
+                                            <Image Source="{Binding UrlImg}   "  
+                                                  HeightRequest="55"
+                                                 Grid.Row="1" Grid.Column="0" />
+
+
+
+                                        </Grid>
+                                    </StackLayout>
+
+
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <Grid
+                VerticalOptions="FillAndExpand"                     
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"  />
+
+                </Grid.RowDefinitions>
+
+                <Button
+                    
+                     Grid.Column="0"
+                        x:Name="btnprev"
+                        VerticalOptions="Fill"
+                        Clicked="btnprev_Clicked"
+                        Grid.Row="0"
+                        FontSize="Micro"
+                        Text="Previous"/>
+                <Button Text="Next"
+                        x:Name="btnnext"
+                        VerticalOptions="Fill"
+                        Clicked="btnnext_Clicked"
+                        Grid.Column="1"
+                        FontSize="Micro"
+                        Grid.Row="0"/>
+
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
